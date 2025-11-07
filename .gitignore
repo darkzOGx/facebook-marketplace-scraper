@@ -1,0 +1,32 @@
+# Dependency directories
+node_modules/
+package-lock.json
+
+# Apify storage
+apify_storage/
+storage/
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test coverage
+coverage/
+
+# Build outputs
+dist/
+build/

@@ -1,0 +1,79 @@
+{
+  "title": "Facebook Marketplace Scraper Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "searchQuery": {
+      "title": "Search Query",
+      "type": "string",
+      "description": "What to search for on Facebook Marketplace (e.g., 'iphone 14', 'furniture', 'cars')",
+      "editor": "textfield",
+      "example": "iphone 14"
+    },
+    "location": {
+      "title": "Location",
+      "type": "string",
+      "description": "Location to search in (e.g., 'New York, NY', 'Los Angeles, CA'). Leave empty for your default location.",
+      "editor": "textfield",
+      "example": "New York, NY"
+    },
+    "maxListings": {
+      "title": "Max Listings",
+      "type": "integer",
+      "description": "Maximum number of listings to scrape",
+      "editor": "number",
+      "default": 50,
+      "minimum": 1,
+      "maximum": 500
+    },
+    "minPrice": {
+      "title": "Minimum Price",
+      "type": "integer",
+      "description": "Filter listings by minimum price (optional)",
+      "editor": "number",
+      "minimum": 0,
+      "nullable": true
+    },
+    "maxPrice": {
+      "title": "Maximum Price",
+      "type": "integer",
+      "description": "Filter listings by maximum price (optional)",
+      "editor": "number",
+      "minimum": 0,
+      "nullable": true
+    },
+    "condition": {
+      "title": "Condition",
+      "type": "string",
+      "description": "Filter by item condition",
+      "editor": "select",
+      "enum": ["all", "new", "used"],
+      "enumTitles": ["All Conditions", "New Only", "Used Only"],
+      "default": "all"
+    },
+    "sortBy": {
+      "title": "Sort By",
+      "type": "string",
+      "description": "How to sort the results",
+      "editor": "select",
+      "enum": ["best_match", "creation_time_descend", "price_ascend", "price_descend"],
+      "enumTitles": ["Best Match", "Newest First", "Price: Low to High", "Price: High to Low"],
+      "default": "best_match"
+    },
+    "proxy": {
+      "title": "Proxy Configuration",
+      "type": "object",
+      "description": "Proxy settings for requests",
+      "editor": "proxy",
+      "default": {
+        "useApifyProxy": true,
+        "apifyProxyGroups": []
+      },
+      "prefill": {
+        "useApifyProxy": true,
+        "apifyProxyGroups": []
+      }
+    }
+  },
+  "required": ["searchQuery"]
+}

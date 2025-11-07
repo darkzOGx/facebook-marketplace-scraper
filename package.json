@@ -1,0 +1,24 @@
+{
+  "name": "facebook-marketplace-scraper",
+  "version": "1.0.0",
+  "description": "Scrape Facebook Marketplace listings with prices, seller info, location, and images",
+  "type": "module",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "facebook",
+    "marketplace",
+    "scraper",
+    "apify",
+    "crawlee"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "apify": "^3.5.1",
+    "crawlee": "^3.15.2"
+  }
+}

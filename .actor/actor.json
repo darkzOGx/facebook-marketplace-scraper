@@ -1,0 +1,57 @@
+{
+  "actorSpecification": 1,
+  "name": "facebook-marketplace-scraper",
+  "title": "Facebook Marketplace Scraper - Product Listings & Prices",
+  "version": "1.0",
+  "description": "Scrape Facebook Marketplace for product listings, prices, seller info, locations, and images. Extract deals, track prices, and monitor inventory.",
+  "categories": ["ECOMMERCE", "BUSINESS", "MARKETING"],
+  "dockerfile": "./Dockerfile",
+  "readme": "./README.md",
+  "input": "./input_schema.json",
+  "meta": {
+    "templateId": "facebook-marketplace-scraper",
+    "minMemoryMbytes": 4096,
+    "recommendedMemoryMbytes": 8192,
+    "maxMemoryMbytes": 32768
+  },
+  "defaultRunOptions": {
+    "build": "latest",
+    "timeoutSecs": 3600,
+    "memoryMbytes": 8192
+  },
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "title": "Facebook Marketplace Listings",
+      "description": "Product listings with prices, seller info, and images",
+      "views": {
+        "overview": {
+          "title": "All Listings",
+          "transformation": {
+            "fields": [
+              "title",
+              "price",
+              "location",
+              "condition",
+              "sellerName",
+              "url",
+              "imageUrl",
+              "scrapedAt"
+            ]
+          },
+          "display": {
+            "component": "table",
+            "properties": {
+              "title": { "label": "Product Title", "format": "text" },
+              "price": { "label": "Price", "format": "text" },
+              "location": { "label": "Location", "format": "text" },
+              "condition": { "label": "Condition", "format": "text" },
+              "sellerName": { "label": "Seller", "format": "text" },
+              "url": { "label": "Listing URL", "format": "link" }
+            }
+          }
+        }
+      }
+    }
+  }
+}
